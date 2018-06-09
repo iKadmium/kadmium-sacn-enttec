@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "kadmium-sacn-enttec": {
+      "commandName": "Project",
+      "commandLineArgs": "COM3"
+    }
+  }
+}
