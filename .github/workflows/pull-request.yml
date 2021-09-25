@@ -1,0 +1,40 @@
+name: Test and Coverage
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+    - name: Restore dependencies
+      workdir: backend
+      run: dotnet restore
+    - name: Build
+      workdir: backend
+      run: dotnet build --no-restore
+    - name: Test
+      workdir: backend
+      run: dotnet test --no-build --verbosity normal --settings coverlet.runsettings
+    - name: Check coverage
+      uses: codecov/codecov-action@v1
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - name: Install packages
+      workdir: frontend
+      run: npm ci
+    - name: Check coverage
+      workdir: frontend
+      uses: codecov/codecov-action@v1

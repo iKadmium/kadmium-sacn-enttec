@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"name": "Backend",
+			"path": "src\\backend"
+		},
+		{
+			"name": "Frontend",
+			"path": "src\\frontend"
+		}
+	],
+	"settings": {
+		"cSpell.words": [
+			"Enttec",
+			"Kadmium",
+			"Sacn"
+		]
+	}
+}
