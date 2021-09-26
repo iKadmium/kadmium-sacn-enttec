@@ -11,7 +11,7 @@ using Kadmium_Enttec;
 
 namespace backend.src.DataSources
 {
-	public class SerialPortDeviceDataSource : IDeviceDataSource
+	public class DeviceDataSource : IDeviceDataSource
 	{
 		private class WriterEntry
 		{
@@ -23,7 +23,7 @@ namespace backend.src.DataSources
 		private Dictionary<string, WriterEntry> Writers { get; }
 		private IMulticastSacnReceiver SacnReceiver { get; }
 
-		public SerialPortDeviceDataSource(IDmxWriterFactory dmxWriterFactory, IMulticastSacnReceiver receiver)
+		public DeviceDataSource(IDmxWriterFactory dmxWriterFactory, IMulticastSacnReceiver receiver)
 		{
 			WriterFactory = dmxWriterFactory;
 			Writers = new Dictionary<string, WriterEntry>();
