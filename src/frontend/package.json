@@ -29,7 +29,7 @@
   },
   "jest": {
     "coverageReporters": [
-      "lcov"
+      "lcovonly"
     ]
   },
   "eslintConfig": {
