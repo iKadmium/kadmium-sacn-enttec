@@ -30,7 +30,7 @@ namespace backend
 
 			services.AddControllersWithViews();
 
-			services.AddSingleton<IDeviceDataSource, SerialPortDeviceDataSource>();
+			services.AddSingleton<IDeviceDataSource, DeviceDataSource>();
 			services.AddSingleton<IDmxWriterFactory, EnttecWriterFactory>();
 			services.AddSingleton<IMulticastSacnReceiver, MulticastSacnReceiverIPV4>();
 			services.AddSingleton<ISchema, EnttecSchema>(services => new EnttecSchema(new SelfActivatingServiceProvider(services)));
@@ -46,7 +46,7 @@ namespace backend
 			// In production, the React files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
 			{
-				configuration.RootPath = "ClientApp/build";
+				configuration.RootPath = "frontend";
 			});
 		}
 
@@ -92,12 +92,7 @@ namespace backend
 
 			app.UseSpa(spa =>
 			{
-				spa.Options.SourcePath = "ClientApp";
-
-				if (env.IsDevelopment())
-				{
-					//spa.UseReactDevelopmentServer(npmScript: "start");
-				}
+				spa.Options.SourcePath = "frontend";
 			});
 		}
 	}
