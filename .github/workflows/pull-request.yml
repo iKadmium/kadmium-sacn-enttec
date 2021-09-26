@@ -33,7 +33,7 @@ jobs:
       with:
         node-version: '16'
     - name: Install packages
-      run: npm ci
+      run: yarn install
       working-directory: src/frontend
     - name: Check coverage
       uses: codecov/codecov-action@v1
