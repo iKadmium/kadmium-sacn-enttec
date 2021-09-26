@@ -12,13 +12,23 @@ export const DeviceQuery = gql`
 	}
 `;
 
-export interface IDevice {
+interface IDeviceBase {
 	id: string;
-	status: DeviceStatus;
-	universe?: Number;
+}
+
+interface IDeviceInUse extends IDeviceBase {
+	status: "IN_USE";
+	universe: Number;
+}
+
+interface IDeviceAvailable extends IDeviceBase {
+	status: "AVAILABLE";
+	universe: null;
 }
 
 export type DeviceStatus = "AVAILABLE" | "IN_USE";
+
+export type IDevice = IDeviceInUse | IDeviceAvailable;
 
 export interface IDeviceQuery {
 	allDevices: IDevice[];

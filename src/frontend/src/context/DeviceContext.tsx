@@ -10,12 +10,13 @@ export const useDeviceContext = () => useContext(DeviceContext);
 export const DeviceProvider: React.FC = ({ children }) => {
 	const { data, loading, error } = useQuery<IDeviceQuery>(DeviceQuery);
 
+	if (error) {
+		return <Alert theme="danger">{error && error.message}</Alert>
+	}
 	if (loading || !data) {
 		return <p>Loading</p>
 	}
-	if (error) {
-		return <Alert>{error && error.message}</Alert>
-	}
+
 	return <DeviceContext.Provider value={data}>
 		{children}
 	</DeviceContext.Provider>

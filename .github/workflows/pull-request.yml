@@ -35,5 +35,11 @@ jobs:
     - name: Install packages
       run: yarn install
       working-directory: src/frontend
+    - name: Run tests
+      run: yarn test --coverage
+      working-directory: src/frontend
+    - name: Build
+      run: yarn build
+      working-directory: src/frontend
     - name: Check coverage
       uses: codecov/codecov-action@v1
