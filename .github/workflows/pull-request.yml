@@ -14,13 +14,13 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      working-directory: backend
+      working-directory: src/backend
       run: dotnet restore
     - name: Build
-      working-directory: backend
+      working-directory: src/backend
       run: dotnet build --no-restore
     - name: Test
-      working-directory: backend
+      working-directory: src/backend
       run: dotnet test --no-build --verbosity normal --settings coverlet.runsettings
     - name: Check coverage
       uses: codecov/codecov-action@v1
@@ -34,6 +34,6 @@ jobs:
         node-version: '16'
     - name: Install packages
       run: npm ci
-      working-directory: frontend
+      working-directory: src/frontend
     - name: Check coverage
       uses: codecov/codecov-action@v1
