@@ -88,18 +88,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: backend
+        path: build
     - name: Download frontend build
       uses: actions/download-artifact@v2
       with:
         name: frontend
-    - name: Prepare backend
-      run: | 
-        mkdir build
-        cd build
-        unzip ../backend.zip
-        mkdir frontend
-        cd frontend
-        unzip ../../frontend.zip
+        path: build/frontend
     - name: Upload test coverage
       uses: actions/upload-artifact@v2
       with:
