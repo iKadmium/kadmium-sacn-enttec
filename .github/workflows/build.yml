@@ -18,7 +18,7 @@ jobs:
       run: dotnet restore
     - name: Build Debug
       working-directory: src/backend
-      run: dotnet build --no-restore -c Release
+      run: dotnet build --no-restore
     - name: Test
       working-directory: src/backend
       run: dotnet test --no-build --verbosity normal --settings coverlet.runsettings
