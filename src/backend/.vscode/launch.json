@@ -9,7 +9,7 @@
 			"type": "coreclr",
 			"request": "launch",
 			"preLaunchTask": "build",
-			"program": "${workspaceFolder}/Backend/bin/Debug/net5.0/backend.dll",
+			"program": "${workspaceFolder}/Backend/bin/Debug/net6.0/backend.dll",
 			"args": [],
 			"cwd": "${workspaceFolder}/Backend",
 			"stopAtEntry": false,
