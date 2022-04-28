@@ -93,13 +93,13 @@ jobs:
       with:
         name: frontend
     - name: Prepare backend
-      run: 
-        | mkdir build
-        | cd build
-        | unzip ../backend.zip
-        | mkdir frontend
-        | cd frontend
-        | unzip ../../frontend.zip
+      run: | 
+        mkdir build
+        cd build
+        unzip ../backend.zip
+        mkdir frontend
+        cd frontend
+        unzip ../../frontend.zip
     - name: Upload test coverage
       uses: actions/upload-artifact@v2
       with:
